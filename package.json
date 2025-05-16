@@ -1,26 +1,40 @@
 {
-  "name": "vite-plugin",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vite-plugin-images-preload",
+  "version": "1.0.0",
   "type": "module",
-  "files": [
-    "dist",
-    "index.d.ts"
+  "main": "dist/vite-plugin-images-preload.cjs.js",
+  "module": "dist/vite-plugin-images-preload.es.js",
+  "types": "dist/vite-plugin-images-preload.d.ts",
+  "keywords": [
+    "vite",
+    "plugin",
+    "preload",
+    "image",
+    "performance"
   ],
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
-  "types": "./index.d.ts",
+  "description": "Vite plugin for image preloading",
+  "private": false,
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
+    "import": "./dist/vite-plugin-images-preload.es.js",
+    "require": "./dist/vite-plugin-images-preload.cjs.js",
+    "default": "./dist/vite-plugin-images-preload.es.js"
+  },
+  "peerDependencies": {
+    "vite": "^4.0.0 || ^5.0.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "vite build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://https://github.com/FF11213/vite-plugin-images-preload"
+  },
+  "author": "FF11213",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
-    "typescript": "~5.7.3",
-    "vite": "^6.1.1"
+    "fast-glob": "^3.3.3"
   }
 }

@@ -1,11 +1,24 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite"
 
 export default defineConfig({
   build: {
+    outDir: "dist",
+    emptyOutDir: false, //清空dist
+    minify: true, //开启压缩
     lib: {
-      entry: './lib/main.ts',
-      name: 'Counter',
-      fileName: 'counter',
+      entry: "./src/vite-plugin-images-preload.js",
+      name: "vite-plugin-images-preload",
+      fileName: (format) => {
+        return `vite-plugin-images-preload.${format}.js`
+      },
+      formats: ["es", "cjs"],
     },
+    rollupOptions: {
+      // 将所有 Node.js 内置模块标记为外部依赖
+      external: ["path", "fs", "node:path", "node:fs", /node:.*/],
+    },
+  },
+  resolve: {
+    extensions: [".ts", ".js"], // 允许导入 TS 和 JS 文件
   },
 })
